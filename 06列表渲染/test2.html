@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='app'>
+        <input type="text" v-model="searchName">
+        <ul>
+            <li v-for="(p, index) in filterPersons" :key="p.id">--- {{p.id}}--{{p.name}}--{{p.age}}--</li>
+        </ul>
+        <button @click='shengxu'>按年龄升序</button>
+        <button @click='jiangxu'>按年龄降序</button>
+        <button @click='yuanben'>原本顺序</button>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        new Vue({
+            data: {
+                sortType: 3,
+                searchName: '',
+                persons: [{
+                        id: 1,
+                        name: 'Tom',
+                        age: 15
+                    },
+                    {
+                        id: 2,
+                        name: 'Jack',
+                        age: 12
+                    },
+                    {
+                        id: 4,
+                        name: 'Bob',
+                        age: 17
+                    },
+                    {
+                        id: 6,
+                        name: 'Rose',
+                        age: 16
+                    },
+                    {
+                        id: 8,
+                        name: 'Else',
+                        age: 13
+                    }
+                ]
+            },
+            computed: {
+                filterPersons() {
+                    //1.得到依赖数据
+                    const {
+                        sortType,
+                        searchName,
+                        persons
+                    } = this
+                    //2.进行计算处理，产生结果数据并返回
+                    //对persons过滤
+                    const arr = persons.filter(p => {
+                        return p.name.indexOf(searchName) >= 0
+                    })
+                    if (sortType !== 1) {
+                        arr.sort((p1, p2) => {
+                            if (sortType === 2) {
+                                console.log('sss');
+                                return p1.age - p2.age
+                            } else {
+                                return p2.age - p1.age
+
+                            }
+                        })
+                    }
+                    return arr
+                }
+            },
+            methods: {
+                shengxu() {
+                    this.sortType = 2
+                    console.log(this.sortType);
+
+                },
+                jiangxu() {
+                    this.sortType = 3
+                },
+                yuanben() {
+                    this.sortType = 1
+                }
+
+            }
+        }).$mount('#app')
+    </script>
+</body>
+
+</html>

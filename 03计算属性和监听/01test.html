@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="../vue.js"></script>
+    <script>
+        /*
+Object.defineProperty()方法会直接在一个对象上定义一个新的属性，
+或者修改一个对象的现有属性，并返回这个对象
+给对象添加一个fullName属性，要求如下：
+1.fullName属性的值：firstName-lastName
+2.如果改变firstName、lastName，fullName也要跟着变
+3.如果改变了fullName，firsName/lastName也会改变
+*/
+        const p = {
+            firstName: 'A',
+            lastName: 'B'
+        }
+        p.fullName = p.firstName + '-' + p.lastName
+        console.log(p.fullName);
+        //现在修改firstName，lastName 按要求fullname也要跟着变
+        p.firstName = 'C'
+        p.lastName = 'D'
+        p.fullName = p.firstName + '-' + p.lastName
+        console.log(p.fullName); //结果不变
+        //现在修改fullname 按道理fistName 和lastName也会变
+        p.fullName = 'E-F'
+        console.log(p.firstName, p.lastName); //结果不变
+        //以上的方法不能达到我们的要求
+          
+    </script>
+</body>
+
+</html>

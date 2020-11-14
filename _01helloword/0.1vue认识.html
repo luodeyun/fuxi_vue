@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hello  vue</title>
+</head>
+<body>
+    <div id="test">
+        <input type="text" v-model="msg">
+        <p>Hello {{msg}}</p>
+      </div>
+      <p id="test2">Hello {{msg}}</p> 
+    <script src="../vue.js"></script>
+    <script>
+        //创建Vue的实力对象
+   const vm= new Vue({  //配置对象，属性名是一些特定的
+        el:'#test', //element，值是一个选择器，用来指定模板的根元素
+        data:{      //对象，为模板提供数据
+            msg:'nihao'
+        }
+    }) 
+    const vm2 = new Vue({
+        el:'#test2',
+        data(){
+            return {
+                msg:'xfzzhang',
+                xxx:{}
+            }
+        }
+    })
+    //数据代理：vm代理了对data中数据的操作（读/写）
+    console.log(vm,vm.msg);   //读取是data对象上的msg属性值
+    setTimeout(()=>{
+        vm.msg='xxx'
+    },2000)
+    //什么是mvvm？
+    /*
+    mvvm是一个模式，vue采用了该模式，mvvm里面的m是modul模型的意思，相当于vue的data数据
+    view是视图的意思对应展示的页面，vm是我们数据data和页面视图连接的桥梁而我们的data数据发生了改变，对应视图也会发生改变，
+    这里面采用数据绑定（Data bindings）,而我们页面的数据发生了变化对应的data数据也会发生变化
+    里面用了Dom listening 数据监听的方式，而我们数据绑定和dom监听也称双向数据绑定
+    他们是双向的
+    
+    */
+    </script>
+</body>
+</html>

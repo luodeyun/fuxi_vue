@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='demo'>
+        <h2>测试：v-for 遍历数组</h2>
+           <ul>
+               <li v-for="(p,index) in persons" :key='p.id'>
+                   {{p.id}}--{{p.name}}--{{p.age}}--
+                   <button @click='deleteP(index)'>删除</button>--
+                   <button @click='updateP(index,{id:6,name:"wade",age:30})'>增加</button></li>
+           </ul>
+
+        <h2>测试：v-for 遍历对象</h2>
+
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        new Vue({
+            el: '#demo',
+            data: {
+                persons: [{
+                        id: 1,
+                        name: 'Tom',
+                        age: 15
+                    },
+                    {
+                        id: 2,
+                        name: 'Jack',
+                        age: 12
+                    },
+                    {
+                        id: 4,
+                        name: 'Bob',
+                        age: 17
+                    },
+                    {
+                        id: 6,
+                        name: 'Rose',
+                        age: 16
+                    },
+                    {
+                        id: 8,
+                        name: 'Else',
+                        age: 13
+                    }
+                ]
+            },
+            methods: {
+              deleteP(index){
+                  console.log(index);
+                
+                  this.persons.splice(index,1)
+              }  ,
+              updateP(index,newP){
+                  console.log(newP); 
+                this.persons[index]=newP  
+                //改变了persons属性的值但是界面没有改变  ，不会更新界面
+                 //this.persons[index].name=newP.name
+                  //this.persons.splice(index,1,newP)    //改变了persons属性的值，界面发生了变化
+                  //this.persons=[]    //改变了
+              }
+            }
+        })
+        /*
+        vue的数据绑定是如何实现的？
+        1.vue会监视data中所有层次的属性
+        2.对象中的属性数据通过添加set方法来实现监视
+        3.数组中的元素也实现了监视：重写数组一系列更新元素的方法
+        对于数组这样操作他的效率高
+          (1).调用原生对应的方法对元素进行处理
+          (2).去更新界面      
+        */
+    </script>
+</body>
+
+</html>
