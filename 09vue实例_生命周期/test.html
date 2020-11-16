@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='test'>
+        <button @click='destoryVM'>destory vue</button>
+        <p v-show="isShow">xxxxxxxxx</p>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        new Vue({
+            el: '#test',
+            data() {
+                return {
+                    isShow: true
+                }
+            },
+            mounted() {
+                 this.intervalId=setInterval(() => {
+                    this.isShow = !this.isShow
+                    console.log('1');
+                    
+                }, 1000)
+            },
+            methods: {
+                destoryVM(){
+                    console.log('1');
+                    this.$destroy()
+                }
+            },
+            beforeDestroy() {
+                clearInterval(this.intervalId)
+            },
+        })
+    </script>
+</body>
+
+</html>

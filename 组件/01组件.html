@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='demo'>
+        <button-conunter></button-conunter>
+        <button-conunter></button-conunter>
+        <button-conunter></button-conunter>
+        <hr>
+        <blog-post title="我的vue路程"></blog-post>
+        <blog-post title="我的vue路程"></blog-post>
+        <blog-post title="我的vue路程"></blog-post>
+        <hr>
+      <blog-posts v-for="(item) in posts" :key="item.id" :title='item.ti    tle'></blog-posts>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        Vue.component('button-conunter', {
+            data() { //组件的data是一个返回对象的函数，
+                return {
+                    count: 0
+                }
+            },
+            template: "<button @click='count++'>你的点击了{{count}}</button>"
+        })
+        Vue.component('blog-post', {
+            props: ['title'], //声明接收
+            template: '<h3>{{title}}</h3>'
+        })
+        Vue.component('blog-posts', {
+            props: ['title'], //声明接收
+            template: '<h3>{{title}}</h3>'
+        })
+        new Vue({
+            el: '#demo',
+            data: {
+                posts: [{
+                    id: 1,
+                    title: '我的Vue旅程222'
+
+                }, {
+                    id: 2,
+                    title: '我的Vue旅程223'
+                }, {
+                    id: 3,
+                    title: '我的Vue旅程224'
+                }]
+            }
+        })
+    </script>
+</body>
+
+</html>

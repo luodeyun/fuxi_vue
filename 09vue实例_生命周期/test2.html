@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='test'>
+        <button>destory vue</button>
+        <p v-show="isShow">xxxxxxxxx</p>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        new Vue({
+            el: '#test',
+            data() {
+                return {
+                    isShow: true
+                }
+            },
+            beforeCreate() {
+                console.log('beforeCreate()', this.isShow); //
+            },
+            //实现数据代理，后面可以通过vm读取data中的数据
+            created() {
+                console.log('created()', this.isShow);
+            },
+            //拉取el里面作为模板编译
+            beforeMount() {
+                console.log('beforeMount()');
+            },
+            //编译完成实现挂载
+            mounted() {
+                console.log('mouted');
+            },
+            //数据发生改变
+        beforeUpdate () {  //界面更新前  此时读到的页面是老页面
+            console.log('beforeUpdata()');            
+        },
+        updata(){ //界面更新后，此时读都的页面是新页面
+
+        }
+
+            
+        })
+    </script>
+</body>
+
+</html>
