@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>发送axios</button>
+    <script src="https://cdn.staticfile.org/axios/0.1.0/axios.min.js"></script>
+    <script>
+        //创建一个实例
+        // const instance = axios.create({
+        //     baseURL: 'https://some-domain.com/api/',
+        //     timeout: 1000
+        // })
+
+        // // 拦截器 -请求拦截
+        // instance.interceptors.requset.use(function (config) {
+        //     return config;
+        // }, function (err) {
+        //     return
+        // })
+        // //拦截器 - 响应拦截器
+
+        // function require(config) {
+        //     const instance1 = axios.create({
+        //         baseURL: 'localhost://3000',
+        //         timeout: 3000
+        //     })
+        //     instance1.interceptors.request.use(config => {
+        //         return config
+        //     }, err => {})
+        //     instance1.interceptors.response.use(res=>{
+        //         return res.data
+        //     },err=>{})
+        //     return instance(config)
+        // }
+        //    function getaA(){
+        //        return require({})
+        //    }
+        let user = {
+            username: '老成',
+            type: '帅'
+        }
+        let content = '厚脸皮'
+        // let str = user.type;
+        Object.defineProperty(user, 'type', {
+            enumerable: true,
+            configurable: true,
+            get() {
+                console.log('现在取type数据');
+
+                return content
+            },
+            set(newValue) {
+                valcontent = newValue
+            }
+        })
+        console.log(user.type);
+    </script>
+
+    <body>
+
+</html>

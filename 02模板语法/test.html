@@ -18,7 +18,7 @@
         <a v-bind:href="url">去学习</a><br>
         <a :href="url">去学习</a><br>
         <h2>3.指令二：绑定事件监听</h2>
-        <button @click='test1'>test1111</button>
+        <button @click='test1'>{{content}}</button>
     </div>
     <script src="../vue.js"></script>
     <script>
@@ -29,9 +29,10 @@
                 url: 'http://www.baidu.com'
             },
             methods: { //包含n个事件回调函数的时间
-               test1(e){
-                   console.log(e);                 
-                 alert(e.target.innerHTML)
+               test1(){
+                 console.log(this);
+                             
+                
                }
             },
         })
