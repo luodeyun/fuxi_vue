@@ -7,18 +7,53 @@
     <title>Document</title>
 </head>
 <body>
+        <p id="msg">通知：<span>消息</span></p>
     <script>
-        let arr = [1, 2, 3, {
-            username: 'kobe'
-        }];
-        let arr2 = arr.concat()
-        console.log(arr2);
-        arr[3].username = 'jack'
-        console.log(arr, arr2);
-        //浅拷贝 arr.slice() 
-        let arr3 = arr.slice()
-        arr3[3].username = 'duncan'
-        console.log(arr3, arr);
-        </script>
+        // let arr = [1, 2, 3, {
+        //     username: 'kobe'
+        // }];
+        // let arr2 = arr.concat()
+        // console.log(arr2);
+        // arr[3].username = 'jack'
+        // console.log(arr, arr2);
+        // //浅拷贝 arr.slice() 
+        // let arr3 = arr.slice()
+        // arr3[3].username = 'duncan'
+        // console.log(arr3, arr);
+        // let obj = {username:'kobe',age:43};
+        // let obj2 = {sex:'男'}
+        // Object.assign(obj2,obj)
+        // obj2.username='wade'
+        // console.log(obj2,obj);              
+//         var setObj=function(o){    
+// 		o.name="mary";    
+// 	}
+
+// 	var p={ name:"john", age:24};
+// 	setObj(p);
+// 	console.log(p.name);
+// console.log(p.age);
+// var time = new Date( );
+// document.write(time.getDate( ));
+
+str="welcome to china";
+ console.log(str.substring(1,5))
+var p = document.getElementById('msg');
+console.log( p.nodeValue );
+console.log( p.textContent ); 
+
+// function func1(arr) {
+// 	for(var data in arr)  {
+// 		data++;
+// 	}
+// 	for(var i=0;i<arr.length;i++) {
+// 		arr[i]++;
+// 	}
+// }
+
+// var datas = [10,20];
+// func1(datas);
+// console.log(datas);
+ </script>
 </body>
 </html>
