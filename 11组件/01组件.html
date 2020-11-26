@@ -18,8 +18,20 @@
         <blog-post title="我的vue路程"></blog-post>
         <blog-post title="我的vue路程"></blog-post>
         <hr>
-      <blog-posts v-for="(item) in posts" :key="item.id" :title='item.ti    tle'></blog-posts>
+      <blogposts v-for="(item) in posts" :key="item.id" :title='item.title' ></blogposts>
     </div>
+
+
+    <template id='test2'>
+            <button @click='count++'>你的点击了{{count}}</button>
+    </template>
+    <template id='test3'>
+            <div>
+                    <h3>{{title}}</h3>
+                    <!-- <solt :sg='sg'> {{sg[0]}}</solt> -->
+                    <!-- <solt>s</solt> -->
+                    </div>
+    </template>
     <script src="../vue.js"></script>
     <script>
         Vue.component('button-conunter', {
@@ -28,15 +40,21 @@
                     count: 0
                 }
             },
-            template: "<button @click='count++'>你的点击了{{count}}</button>"
+            template: "#test2"
         })
         Vue.component('blog-post', {
             props: ['title'], //声明接收
             template: '<h3>{{title}}</h3>'
         })
-        Vue.component('blog-posts', {
-            props: ['title'], //声明接收
-            template: '<h3>{{title}}</h3>'
+        Vue.component('blogposts', {
+            props: ['title'],
+            data(){
+                return {
+                    sg:['Angular','Vue','React','jQuery']
+                }
+            }, //声明接收
+            template: '#test3'
+            
         })
         new Vue({
             el: '#demo',

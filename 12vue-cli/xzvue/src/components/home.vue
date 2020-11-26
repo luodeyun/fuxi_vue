@@ -1,18 +1,17 @@
-      <template>
-          <div >
-          <h3>我是home组件</h3>
-          </div>
-      </template>;
-      <script>
+<template>
+    <div >
+        <h3>我是home组件</h3>
+     </div>
+</template>;
 
-       export default{  
-          name:'home',
-mounted () {
-    console.log('1');
-    
-}
-       }
-      </script>
-      <style>
+<script>
+export default {
+  name: "home",
+  mounted() {
+    console.log("1");
+  }
+};
+</script>
+<style>
 
-     </style>
+</style>

@@ -11,6 +11,11 @@
  <router-link :to="`/home/${id}`" tag='button'>点我去home</router-link>
  <router-link to='/about' tag='button'>点我去about</router-link>
  <router-view></router-view>
+ <Hello-vue ></Hello-vue>
+ <Hello-vue><template v-slot='soltProps'>
+     {{soltProps.sg}}
+
+ </template></Hello-vue>
   </div>
 </template>
 <script>
@@ -30,6 +35,7 @@ export default {
   mounted() {
     console.log(this.$router);
     console.log(this.$route);
+    console.log(HelloVue);
     
     
   },

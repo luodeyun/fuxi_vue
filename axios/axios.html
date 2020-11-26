@@ -42,25 +42,62 @@
         //    function getaA(){
         //        return require({})
         //    }
-        let user = {
-            username: '老成',
-            type: '帅'
-        }
-        let content = '厚脸皮'
-        // let str = user.type;
-        Object.defineProperty(user, 'type', {
-            enumerable: true,
-            configurable: true,
-            get() {
-                console.log('现在取type数据');
+        // let user = {
+        //     username: '老成',
+        //     type: '帅'
+        // }
+        // let content = '厚脸皮'
+        // // let str = user.type;
+        // Object.defineProperty(user, 'type', {
+        //     enumerable: true,
+        //     configurable: true,
+        //     get() {
+        //         console.log('现在取type数据');
 
-                return content
-            },
-            set(newValue) {
-                valcontent = newValue
-            }
-        })
-        console.log(user.type);
+        //         return content
+        //     },
+        //     set(newValue) {
+        //         valcontent = newValue
+        //     }
+        // })
+        // console.log(user.type);
+        // let arr = [1, 2, 3, 4, 5, 4, 52, 5, 2, 3, 1, 2, 3]
+        // let obj = {
+        //     name: 'zhansan',
+        //     age: 13
+        // }
+        // let set = new Set(arr);
+        // console.log(set);       
+        // console.log({
+        //     ...obj
+        // },);
+        // let obj2 = {
+        //     ...obj
+        // }
+        // console.log(obj.toString());
+        // console.log(arr.toString());//数组中重写了object原型的toString方法
+        // console.log(Object.prototype.toString.call(arr).slice(8,-1));
+
+
+
+
+        //浅拷贝arr.concat()//如果改变一个值，另一个值没有改变 则为深拷贝
+        //先了解下arr.concat()
+        //  let arr=[1,2,3]
+        //  let testArr=[4,5]
+        //  let arr2=arr.concat(testArr)   
+        //  console.log(arr2);
+        let arr = [1, 2, 3, {
+            username: 'kobe'
+        }];
+        let arr2 = arr.concat()
+        console.log(arr2);
+        arr[3].username = 'jack'
+        console.log(arr, arr2);
+        //浅拷贝 arr.slice() 
+        let arr3 = arr.slice()
+        arr3[3].username = 'duncan'
+        console.log(arr3, arr);
     </script>
 
     <body>

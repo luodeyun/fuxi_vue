@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [1, 2, 3, {
+            username: 'kobe'
+        }];
+        let arr2 = arr.concat()
+        console.log(arr2);
+        arr[3].username = 'jack'
+        console.log(arr, arr2);
+        //浅拷贝 arr.slice() 
+        let arr3 = arr.slice()
+        arr3[3].username = 'duncan'
+        console.log(arr3, arr);
+        </script>
+</body>
+</html>
