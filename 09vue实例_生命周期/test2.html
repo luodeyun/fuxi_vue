@@ -19,7 +19,8 @@
             el: '#test',
             data() {
                 return {
-                    isShow: true
+                    isShow: true,
+                    isss:''
                 }
             },
             beforeCreate() {
@@ -27,7 +28,11 @@
             },
             //实现数据代理，后面可以通过vm读取data中的数据
             created() {
-                console.log('created()', this.isShow);
+                setTimeout(()=>{
+                    this.isShow=false
+                    console.log(this,'2');
+                },5000)
+                console.log('created()', this);
             },
             //拉取el里面作为模板编译
             beforeMount() {

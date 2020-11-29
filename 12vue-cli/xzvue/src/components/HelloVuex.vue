@@ -1,8 +1,11 @@
 <template>
      <div >
          <h2>{{$store.state.count}}</h2>
-         <slot :sg='sg'>{{mess}}</slot>
-         <button @click='btns'>查看Hello组件</button>
+         <!-- <slot :name='sg'>{{mess}}</slot> -->
+         <slot name='left'>left</slot><br/>
+         <slot name='center'>center</slot><br/>
+         <slot name='right'> {{mess}}</slot>
+        
     </div>
 </template>
 <script>
