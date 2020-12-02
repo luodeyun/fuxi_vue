@@ -26,17 +26,7 @@ export default {
     }
   },
   mounted() {
-    this.axios.get ('',{
-      params:{
-        appkey:'uNIKUq+qSeRcshQufXsxk5khRF4AAAAADvkmRJ1HL4sAAAAAAAAAAA==',
-        json:'{phone:13758835575}'
-      }
-    }).then(reslove=>{
-      console.log(this);
-      
-      console.log(reslove);
-    })
-  },
+  }
 };
 </script>
 <style>

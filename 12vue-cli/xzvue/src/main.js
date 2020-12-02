@@ -6,8 +6,9 @@ import axios from 'axios'
 Vue.config.productionTip = false
 axios.defaults.baseURL='http'
 Vue.prototype.axios = axios
- Vue.prototype.bus='1'
+Vue.prototype.Bus = new Vue()
 new Vue({
+
   router,
   store,
   render: h => h(App)

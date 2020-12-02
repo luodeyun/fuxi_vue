@@ -2,7 +2,7 @@ import home from '../components/home'
 import about from '../components/about'
  const  routes=[
     {
-        path:'/home/:id',
+        path:'/home',
         component: home
     },{
         path:'/about',
