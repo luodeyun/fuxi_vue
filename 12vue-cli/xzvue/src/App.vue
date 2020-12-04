@@ -3,6 +3,7 @@
     <button @click='gohome'>去home</button>
     <button @click='goabout'>去about</button>
     <button @click='go'>去查看</button>
+    <button @click='sock'>socket</button>
  <router-view></router-view>
  <Hello-vue >
  </Hello-vue>
@@ -27,6 +28,9 @@ export default {
     // console.log(this.Bus,'1');
   },
   methods: {
+    sock(){
+      this.socket.emit('message',this.message)
+    },
     go(){
       console.log(this.$route);
       console.log(this.$router);
@@ -51,7 +55,7 @@ export default {
           name:'about',
           params:{
              id:8,
-            
+              name:'zhansan'
           }
         }
       ),
