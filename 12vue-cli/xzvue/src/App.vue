@@ -6,6 +6,7 @@
     <button @click='sock'>socket</button>
  <router-view></router-view>
  <Hello-vue >
+   <div slot='center'>122222222222222222222</div>
  </Hello-vue>
  
   </div>

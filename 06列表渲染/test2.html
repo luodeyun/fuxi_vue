@@ -27,6 +27,7 @@
             data: {
                 sortType: 3,
                 searchName: '',
+                test:1,
                 persons: [
                     {
                         id: 1,
@@ -57,38 +58,58 @@
             },
             computed: {
                 filterPersons() {
-                    //1.得到依赖数据
-                    const {
-                        sortType,
-                        searchName,
-                        persons
-                    } = this
-                    //2.进行计算处理，产生结果数据并返回
-                    //对persons过滤
-                    const arr = persons.filter(p => {
-                        return p.name.indexOf(searchName) >= 0
-                    })
-                    if (sortType !== 1) {
-                        arr.sort((p1, p2) => {
-                            if (sortType === 2) {
-                                console.log('sss');
-                                return p1.age - p2.age
-                            } else {
-                                return p2.age - p1.age
-
-                            }
-                        })
-                    }
+                    console.log('2 computer');
+                    const { sortType,searchName,persons} = this
+                    const arr = persons.filter(p=>{
+                       return p.name.indexOf(searchName)>=0 
+                     })
+                     if(sortType==2){
+                        arr.sort((p1,p2)=>{
+                            return p1.age-p2.age
+                        })                       
+                     }
+                     else if(sortType==3){
+                        arr.sort((p1,p2)=>{
+                           
+                            return p2.age-p1.age
+                        })                       
+                     }
                     return arr
+                    //1.得到依赖数据
+                    // const {
+                    //     sortType,
+                    //     searchName,
+                    //     persons
+                    // } = this
+                    // //2.进行计算处理，产生结果数据并返回
+                    // //对persons过滤
+                    // const arr = persons.filter(p => {
+                    //     return p.name.indexOf(searchName) >= 0
+                    // })
+                    // if (sortType !== 1) {
+                    //     arr.sort((p1, p2) => {
+                    //         if (sortType === 2) {
+                    //             console.log('sss');
+                    //             return p1.age - p2.age
+                    //         } else {
+                    //             return p2.age - p1.age
+                    //         }
+                    //     })
+                    // }
+                    // return arr
+                }
+            },
+            watch:{
+                sortType(){
+                    console.log('222222222222watch');
+                    
                 }
             },
             methods: {
                 shengxu(e) {
-                    this.sortType = 2
-                    console.log(e);
-                    
-                    console.log(this.sortType);
-
+                    // this.sortType = 2
+                    // this.searchName="o"
+                    this.sortType=2
                 },
                 jiangxu() {
                     this.sortType = 3
